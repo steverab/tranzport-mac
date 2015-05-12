@@ -13,6 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var stationTextField: NSTextField!
+    @IBOutlet weak var launchAtLoginButton: NSButton!
     
     let defaults = NSUserDefaults.standardUserDefaults()
     
@@ -83,6 +84,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func setWindowVisible(sender: AnyObject){
         stationTextField.stringValue = defaults.objectForKey("station") as! String
+        if StartupLaunch.isAppLoginItem() {
+            launchAtLoginButton.state = NSOnState
+        } else {
+            launchAtLoginButton.state = NSOffState
+        }
         self.window!.orderFront(self)
     }
     
@@ -97,7 +103,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func launchLoginBoxChecked(sender: NSButton) {
-        
+        if sender.state == NSOnState {
+            StartupLaunch.setLaunchOnLogin(true)
+        } else {
+            StartupLaunch.setLaunchOnLogin(false)
+        }
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {
