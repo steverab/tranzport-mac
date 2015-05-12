@@ -12,8 +12,9 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
-    @IBOutlet weak var label: NSTextField!
-    @IBOutlet weak var button: NSButton!
+    @IBOutlet weak var stationTextField: NSTextField!
+    
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     let statusBar = NSStatusBar.systemStatusBar()
     let apiWrapper = APIWrapper()
@@ -27,6 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         self.window!.orderOut(self)
+        setFirstLaunchOptions()
         refresh()
         var timer = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: Selector("refresh"), userInfo: nil, repeats: true)
     }
@@ -71,19 +73,34 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         quitMenuItem.keyEquivalent = ""
         menu.addItem(quitMenuItem)
     }
-
-    func applicationWillTerminate(aNotification: NSNotification) {
-    }
     
-    @IBAction func buttonPressed(sender: NSButton) {
+    func setFirstLaunchOptions() {
+        if !defaults.boolForKey("firstLaunch") {
+            defaults.setBool(true, forKey: "firstLaunch")
+            defaults.setObject("Garching", forKey: "station")
+        }
     }
     
     func setWindowVisible(sender: AnyObject){
+        stationTextField.stringValue = defaults.objectForKey("station") as! String
         self.window!.orderFront(self)
     }
     
     func quitApp() {
         exit(0)
+    }
+    
+    @IBAction func stationButtonPressed(sender: NSButton) {
+        defaults.setObject(stationTextField.stringValue, forKey: "station")
+        window.makeFirstResponder(nil)
+        refresh()
+    }
+    
+    @IBAction func launchLoginBoxChecked(sender: NSButton) {
+        
+    }
+    
+    func applicationWillTerminate(aNotification: NSNotification) {
     }
 
 }

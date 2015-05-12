@@ -10,10 +10,13 @@ import Foundation
 
 class APIWrapper {
     
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
     let baseURL = "https://tranzit-api.herokuapp.com/"
     
     func fetchDepartures(success: (departures:[Departure]) -> Void, failure: (error : NSError!) -> Void) {
-        request(.GET, baseURL + "departures/Garching").responseJSON { (_, _, JSON, error) in
+        let station = defaults.objectForKey("station") as! String
+        request(.GET, baseURL + "departures/" + station).responseJSON { (_, _, JSON, error) in
             if let err = error {
                 
             } else {
