@@ -14,6 +14,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var stationTextField: NSTextField!
     @IBOutlet weak var launchAtLoginButton: NSButton!
+    @IBOutlet weak var intervalSlider: NSSlider!
+    @IBOutlet weak var intervalLabel: NSTextField!
+    @IBOutlet weak var autoRefreshButton: NSButton!
     
     let defaults = NSUserDefaults.standardUserDefaults()
     
@@ -26,19 +29,33 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let settingsMenuItem = NSMenuItem()
     let quitMenuItem = NSMenuItem()
     
+    var timer: NSTimer!
+    
     var departures: [Departure]!
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         self.window!.orderOut(self)
         setFirstLaunchOptions()
-        refresh()
-        var timer = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: Selector("refresh"), userInfo: nil, repeats: true)
+        setupTimer()
     }
     
     override func awakeFromNib() {
         //setup()
         statusBarItem = statusBar.statusItemWithLength(-1)
         statusBarItem.menu = menu
+    }
+    
+    func setupTimer() {
+        refresh()
+        
+        if defaults.boolForKey("autorefresh") {
+            if timer != nil {
+                timer.invalidate()
+            }
+            let interval = defaults.integerForKey("refreshInterval")
+            timer = NSTimer.scheduledTimerWithTimeInterval(Double(interval), target: self, selector: Selector("refresh"), userInfo: nil, repeats: true)
+        }
+        
     }
     
     func refresh() {
@@ -87,11 +104,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if !defaults.boolForKey("firstLaunch") {
             defaults.setBool(true, forKey: "firstLaunch")
             defaults.setObject("Garching", forKey: "station")
+            defaults.setInteger(15, forKey: "refreshInterval")
+            defaults.setBool(true, forKey: "autorefresh")
         }
     }
     
     func setWindowVisible(sender: AnyObject){
         stationTextField.stringValue = defaults.objectForKey("station") as! String
+        intervalSlider.integerValue = defaults.integerForKey("refreshInterval")
+        
+        if defaults.boolForKey("autorefresh") {
+            autoRefreshButton.state = NSOnState
+            intervalSlider.enabled = true
+            let interv = defaults.integerForKey("refreshInterval")
+            intervalLabel.stringValue = "Current interval: \(interv) seconds"
+        } else {
+            autoRefreshButton.state = NSOffState
+            intervalSlider.enabled = false
+            intervalLabel.stringValue = "Current interval: -"
+        }
+        
         if StartupLaunch.isAppLoginItem() {
             launchAtLoginButton.state = NSOnState
         } else {
@@ -117,6 +149,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } else {
             StartupLaunch.setLaunchOnLogin(false)
         }
+    }
+    
+    @IBAction func autorefreshButtonChecked(sender: NSButton) {
+        if sender.state == NSOnState {
+            defaults.setBool(true, forKey: "autorefresh")
+            intervalSlider.enabled = true
+            let interv = defaults.integerForKey("refreshInterval")
+            intervalLabel.stringValue = "Current interval: \(interv) seconds"
+            setupTimer()
+        } else {
+            defaults.setBool(false, forKey: "autorefresh")
+            intervalSlider.enabled = false
+            intervalLabel.stringValue = "Current interval: -"
+            timer.invalidate()
+        }
+    }
+    
+    @IBAction func sliderValueChanged(sender: NSSlider) {
+        defaults.setInteger(sender.integerValue, forKey: "refreshInterval")
+        intervalLabel.stringValue = "Current interval: \(sender.integerValue) seconds"
+        setupTimer()
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {
