@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA5C45E31B02836900923BC3 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5C45E21B02836900923BC3 /* Alamofire.swift */; };
+		AA5C45EB1B02839000923BC3 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5C45E41B02839000923BC3 /* Download.swift */; };
+		AA5C45EC1B02839000923BC3 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5C45E51B02839000923BC3 /* Manager.swift */; };
+		AA5C45ED1B02839000923BC3 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5C45E61B02839000923BC3 /* ParameterEncoding.swift */; };
+		AA5C45EE1B02839000923BC3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5C45E71B02839000923BC3 /* Request.swift */; };
+		AA5C45EF1B02839000923BC3 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5C45E81B02839000923BC3 /* ResponseSerialization.swift */; };
+		AA5C45F01B02839000923BC3 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5C45E91B02839000923BC3 /* Upload.swift */; };
+		AA5C45F11B02839000923BC3 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5C45EA1B02839000923BC3 /* Validation.swift */; };
+		AA5C45F41B0283CF00923BC3 /* APIWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5C45F31B0283CF00923BC3 /* APIWrapper.swift */; };
+		AA5C45F61B02841400923BC3 /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5C45F51B02841400923BC3 /* Departure.swift */; };
 		AA95FAF31B0273EA00CED5A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA95FAF21B0273EA00CED5A4 /* AppDelegate.swift */; };
 		AA95FAF51B0273EA00CED5A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA95FAF41B0273EA00CED5A4 /* Images.xcassets */; };
 		AA95FAF81B0273EA00CED5A4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA95FAF61B0273EA00CED5A4 /* MainMenu.xib */; };
@@ -24,6 +34,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA5C45E21B02836900923BC3 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
+		AA5C45E41B02839000923BC3 /* Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
+		AA5C45E51B02839000923BC3 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		AA5C45E61B02839000923BC3 /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		AA5C45E71B02839000923BC3 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		AA5C45E81B02839000923BC3 /* ResponseSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseSerialization.swift; sourceTree = "<group>"; };
+		AA5C45E91B02839000923BC3 /* Upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
+		AA5C45EA1B02839000923BC3 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		AA5C45F31B0283CF00923BC3 /* APIWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIWrapper.swift; sourceTree = "<group>"; };
+		AA5C45F51B02841400923BC3 /* Departure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Departure.swift; sourceTree = "<group>"; };
 		AA95FAED1B0273EA00CED5A4 /* TranzportMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TranzportMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA95FAF11B0273EA00CED5A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA95FAF21B0273EA00CED5A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +72,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA5C45E11B02835800923BC3 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				AA5C45F21B02839D00923BC3 /* Alamofire */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		AA5C45F21B02839D00923BC3 /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				AA5C45E21B02836900923BC3 /* Alamofire.swift */,
+				AA5C45E41B02839000923BC3 /* Download.swift */,
+				AA5C45E51B02839000923BC3 /* Manager.swift */,
+				AA5C45E61B02839000923BC3 /* ParameterEncoding.swift */,
+				AA5C45E71B02839000923BC3 /* Request.swift */,
+				AA5C45E81B02839000923BC3 /* ResponseSerialization.swift */,
+				AA5C45E91B02839000923BC3 /* Upload.swift */,
+				AA5C45EA1B02839000923BC3 /* Validation.swift */,
+			);
+			name = Alamofire;
+			sourceTree = "<group>";
+		};
+		AA5C45F71B028B6600923BC3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AA5C45F51B02841400923BC3 /* Departure.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		AA95FAE41B0273EA00CED5A4 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +125,9 @@
 			isa = PBXGroup;
 			children = (
 				AA95FAF21B0273EA00CED5A4 /* AppDelegate.swift */,
+				AA5C45F31B0283CF00923BC3 /* APIWrapper.swift */,
+				AA5C45F71B028B6600923BC3 /* Models */,
+				AA5C45E11B02835800923BC3 /* External */,
 				AA95FAF41B0273EA00CED5A4 /* Images.xcassets */,
 				AA95FAF61B0273EA00CED5A4 /* MainMenu.xib */,
 				AA95FAF01B0273EA00CED5A4 /* Supporting Files */,
@@ -205,7 +259,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA5C45EB1B02839000923BC3 /* Download.swift in Sources */,
+				AA5C45F61B02841400923BC3 /* Departure.swift in Sources */,
+				AA5C45EE1B02839000923BC3 /* Request.swift in Sources */,
+				AA5C45E31B02836900923BC3 /* Alamofire.swift in Sources */,
+				AA5C45ED1B02839000923BC3 /* ParameterEncoding.swift in Sources */,
+				AA5C45F11B02839000923BC3 /* Validation.swift in Sources */,
+				AA5C45F01B02839000923BC3 /* Upload.swift in Sources */,
+				AA5C45F41B0283CF00923BC3 /* APIWrapper.swift in Sources */,
 				AA95FAF31B0273EA00CED5A4 /* AppDelegate.swift in Sources */,
+				AA5C45EF1B02839000923BC3 /* ResponseSerialization.swift in Sources */,
+				AA5C45EC1B02839000923BC3 /* Manager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +460,7 @@
 				AA95FB091B0273EA00CED5A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AA95FB0A1B0273EA00CED5A4 /* Build configuration list for PBXNativeTarget "TranzportMacTests" */ = {
 			isa = XCConfigurationList;
@@ -404,6 +469,7 @@
 				AA95FB0C1B0273EA00CED5A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

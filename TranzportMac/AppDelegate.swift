@@ -16,26 +16,44 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var button: NSButton!
     
     let statusBar = NSStatusBar.systemStatusBar()
+    let apiWrapper = APIWrapper()
     var statusBarItem = NSStatusItem()
     
     let menu = NSMenu()
     let settingsMenuItem = NSMenuItem()
     let quitMenuItem = NSMenuItem()
     
-    var departures = ["U6 → Klin.-Gr. in 1 min", "U6 → Garch.-F. in 8 min", "U6 → Klin.-Gr. in 11 min", "U6 → Garch.-F. in 19 min"]
+    var departures: [Departure]!
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         self.window!.orderOut(self)
+        refresh()
+        var timer = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: Selector("refresh"), userInfo: nil, repeats: true)
     }
     
     override func awakeFromNib() {
+        //setup()
         statusBarItem = statusBar.statusItemWithLength(-1)
         statusBarItem.menu = menu
-        statusBarItem.title = departures.first
+    }
+    
+    func refresh() {
+        apiWrapper.fetchDepartures({ (departures) -> Void in
+            self.departures = departures
+            self.setup()
+            }, failure: { (error) -> Void in
+                
+        })
+    }
+    
+    func setup() {
+        statusBarItem.title = departures.first?.description
+        
+        menu.removeAllItems()
         
         for dep in departures {
             let depItem = NSMenuItem()
-            depItem.title = dep
+            depItem.title = dep.description
             depItem.action = nil
             depItem.keyEquivalent = ""
             menu.addItem(depItem)
