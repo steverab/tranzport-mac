@@ -22,6 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusBarItem = NSStatusItem()
     
     let menu = NSMenu()
+    let refreshMenuItem = NSMenuItem()
     let settingsMenuItem = NSMenuItem()
     let quitMenuItem = NSMenuItem()
     
@@ -64,6 +65,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         menu.addItem(NSMenuItem.separatorItem())
         
+        refreshMenuItem.title = "Refresh"
+        refreshMenuItem.action = Selector("refresh")
+        refreshMenuItem.keyEquivalent = ""
+        menu.addItem(refreshMenuItem)
+        
+        menu.addItem(NSMenuItem.separatorItem())
+        
         settingsMenuItem.title = "Settings"
         settingsMenuItem.action = Selector("setWindowVisible:")
         settingsMenuItem.keyEquivalent = ""
@@ -89,7 +97,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } else {
             launchAtLoginButton.state = NSOffState
         }
-        self.window!.orderFront(self)
+        self.window!.makeKeyAndOrderFront(self)
+        NSApp.activateIgnoringOtherApps(true)
     }
     
     func quitApp() {
