@@ -1,6 +1,6 @@
 # Tranzport-Mac
 
-Tranzport for Mac lives in you Mac's status bar and tells you about the current departures of your nearby subway station in Munich.
+Tranzport for Mac lives in you Mac's status bar and tells you about the current departures of your nearby subway station in Munich. It's based on the [Tranzport API](https://github.com/steverab/Tranzport-API).
 
 ## Screenshots
 
