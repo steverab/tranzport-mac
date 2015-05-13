@@ -36,13 +36,34 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         self.window!.orderOut(self)
         setFirstLaunchOptions()
+        statusBarItem = statusBar.statusItemWithLength(-1)
+        statusBarItem.menu = menu
+        setupFixedMenuItems()
         setupTimer()
     }
     
-    override func awakeFromNib() {
-        //setup()
-        statusBarItem = statusBar.statusItemWithLength(-1)
-        statusBarItem.menu = menu
+    func setFirstLaunchOptions() {
+        if !defaults.boolForKey("firstLaunch") {
+            defaults.setBool(true, forKey: "firstLaunch")
+            defaults.setObject("Garching", forKey: "station")
+            defaults.setInteger(30, forKey: "refreshInterval")
+            defaults.setBool(true, forKey: "autorefresh")
+        }
+    }
+    
+    func setupFixedMenuItems() {
+        refreshMenuItem.title = "Refresh"
+        refreshMenuItem.action = Selector("refresh")
+        refreshMenuItem.keyEquivalent = ""
+        menu.addItem(refreshMenuItem)
+        
+        settingsMenuItem.title = "Settings"
+        settingsMenuItem.action = Selector("setWindowVisible:")
+        settingsMenuItem.keyEquivalent = ""
+        
+        quitMenuItem.title = "Quit"
+        quitMenuItem.action = Selector("quitApp")
+        quitMenuItem.keyEquivalent = ""
     }
     
     func setupTimer() {
@@ -61,52 +82,45 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func refresh() {
         apiWrapper.fetchDepartures({ (departures) -> Void in
             self.departures = departures
-            self.setup()
-            }, failure: { (error) -> Void in
-                
+            self.setupMenuItems()
+        }, failure: { (error) -> Void in
+            self.departures = []
+            self.setupMenuItems()
         })
     }
     
-    func setup() {
-        statusBarItem.title = departures.first?.description
-        
+    func setupMenuItems() {
         menu.removeAllItems()
         
-        for dep in departures {
-            let depItem = NSMenuItem()
-            depItem.title = dep.description
-            depItem.action = nil
-            depItem.keyEquivalent = ""
-            menu.addItem(depItem)
+        if departures.count != 0 {
+            statusBarItem.title = departures.first?.description
+            
+            for dep in departures {
+                let depItem = NSMenuItem()
+                depItem.title = dep.description
+                depItem.action = nil
+                depItem.keyEquivalent = ""
+                menu.addItem(depItem)
+            }
+        } else {
+            statusBarItem.title = "No dep."
+            
+            let noItemsItem = NSMenuItem()
+            noItemsItem.title = "No departures available for this station"
+            noItemsItem.action = nil
+            noItemsItem.keyEquivalent = ""
+            menu.addItem(noItemsItem)
         }
         
-        menu.addItem(NSMenuItem.separatorItem())
-        
-        refreshMenuItem.title = "Refresh"
-        refreshMenuItem.action = Selector("refresh")
-        refreshMenuItem.keyEquivalent = ""
-        menu.addItem(refreshMenuItem)
-        
-        menu.addItem(NSMenuItem.separatorItem())
-        
-        settingsMenuItem.title = "Settings"
-        settingsMenuItem.action = Selector("setWindowVisible:")
-        settingsMenuItem.keyEquivalent = ""
-        menu.addItem(settingsMenuItem)
-        
-        quitMenuItem.title = "Quit"
-        quitMenuItem.action = Selector("quitApp")
-        quitMenuItem.keyEquivalent = ""
-        menu.addItem(quitMenuItem)
+        addFixedMenuItems()
     }
     
-    func setFirstLaunchOptions() {
-        if !defaults.boolForKey("firstLaunch") {
-            defaults.setBool(true, forKey: "firstLaunch")
-            defaults.setObject("Garching", forKey: "station")
-            defaults.setInteger(30, forKey: "refreshInterval")
-            defaults.setBool(true, forKey: "autorefresh")
-        }
+    func addFixedMenuItems() {
+        menu.addItem(NSMenuItem.separatorItem())
+        menu.addItem(refreshMenuItem)
+        menu.addItem(NSMenuItem.separatorItem())
+        menu.addItem(settingsMenuItem)
+        menu.addItem(quitMenuItem)
     }
     
     func setWindowVisible(sender: AnyObject){
