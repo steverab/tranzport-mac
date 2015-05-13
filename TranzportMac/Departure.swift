@@ -16,7 +16,7 @@ class Departure: NSObject, Printable, NSCoding {
     var minutes = ""
     
     override var description: String {
-        return line + " → " + destination + " in " + minutes + " min."
+        return line + " → " + destination + " in " + minutes + " min"
     }
     
     override init() {

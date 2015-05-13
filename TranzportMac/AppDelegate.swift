@@ -109,7 +109,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 menu.addItem(depItem)
             }
         } else {
-            statusBarItem.title = "No dep."
+            statusBarItem.title = "⚠"
             
             let noItemsItem = NSMenuItem()
             noItemsItem.title = "No departures available for this station"

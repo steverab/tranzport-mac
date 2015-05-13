@@ -24,9 +24,9 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
-                <menuItem title="TranzportMac" id="1Xt-HY-uBw">
+                <menuItem title="Tranzport" id="1Xt-HY-uBw">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="TranzportMac" systemMenu="apple" id="uQy-DD-JDr">
+                    <menu key="submenu" title="Tranzport" systemMenu="apple" id="uQy-DD-JDr">
                         <items>
                             <menuItem title="About TranzportMac" id="5kV-Vb-QxS">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -755,15 +755,15 @@
                         </textFieldCell>
                     </textField>
                     <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CN8-W8-sLi">
-                        <rect key="frame" x="43" y="131" width="305" height="20"/>
+                        <rect key="frame" x="47" y="131" width="287" height="20"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="5" maxValue="60" doubleValue="15" tickMarkPosition="above" sliderType="linear" id="GnZ-qP-Xh0"/>
                         <connections>
                             <action selector="sliderValueChanged:" target="Voe-Tx-rLC" id="IYz-ex-nJT"/>
                         </connections>
                     </slider>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4xN-ID-fmF">
-                        <rect key="frame" x="20" y="132" width="19" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="5s" id="M4Q-nc-yzP">
+                        <rect key="frame" x="20" y="132" width="23" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="5 s" id="M4Q-nc-yzP">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -778,8 +778,8 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rfL-lR-0lQ">
-                        <rect key="frame" x="352" y="132" width="24" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="1m" id="ard-TD-aAa">
+                        <rect key="frame" x="338" y="132" width="38" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="1 min" id="ard-TD-aAa">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
