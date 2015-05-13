@@ -104,7 +104,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if !defaults.boolForKey("firstLaunch") {
             defaults.setBool(true, forKey: "firstLaunch")
             defaults.setObject("Garching", forKey: "station")
-            defaults.setInteger(15, forKey: "refreshInterval")
+            defaults.setInteger(30, forKey: "refreshInterval")
             defaults.setBool(true, forKey: "autorefresh")
         }
     }

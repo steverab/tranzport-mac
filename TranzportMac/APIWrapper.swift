@@ -16,7 +16,7 @@ class APIWrapper {
     
     func fetchDepartures(success: (departures:[Departure]) -> Void, failure: (error : NSError!) -> Void) {
         let station = defaults.objectForKey("station") as! String
-        request(.GET, baseURL + "departures/" + station).responseJSON { (_, _, JSON, error) in
+        request(.GET, baseURL + "departures", parameters: ["station": station]).responseJSON { (_, _, JSON, error) in
             if let err = error {
                 
             } else {
