@@ -10,6 +10,8 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    
+    // MARK: Outlets
 
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var stationTextField: NSTextField!
@@ -18,20 +20,30 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var intervalLabel: NSTextField!
     @IBOutlet weak var autoRefreshButton: NSButton!
     
-    let defaults = NSUserDefaults.standardUserDefaults()
+    // MARK: Statusbar
     
     let statusBar = NSStatusBar.systemStatusBar()
-    let apiWrapper = APIWrapper()
     var statusBarItem = NSStatusItem()
+    
+    // MARK: Menu
     
     let menu = NSMenu()
     let refreshMenuItem = NSMenuItem()
     let settingsMenuItem = NSMenuItem()
     let quitMenuItem = NSMenuItem()
     
-    var timer: NSTimer!
+    // MARK: Other
     
+    let defaults = NSUserDefaults.standardUserDefaults()
+    let apiWrapper = APIWrapper()
+    var timer: NSTimer!
     var departures: [Departure]!
+    
+    //-------------------------------------------------------------------------//
+    //-------------------------------------------------------------------------//
+    //-------------------------------------------------------------------------//
+    
+    // MARK: - App lifecycle
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         self.window!.orderOut(self)
@@ -42,6 +54,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         setupTimer()
     }
     
+    func applicationWillTerminate(aNotification: NSNotification) {
+    }
+    
+    // MARK: - First launch config
+    
     func setFirstLaunchOptions() {
         if !defaults.boolForKey("firstLaunch") {
             defaults.setBool(true, forKey: "firstLaunch")
@@ -51,20 +68,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    func setupFixedMenuItems() {
-        refreshMenuItem.title = "Refresh"
-        refreshMenuItem.action = Selector("refresh")
-        refreshMenuItem.keyEquivalent = ""
-        menu.addItem(refreshMenuItem)
-        
-        settingsMenuItem.title = "Settings"
-        settingsMenuItem.action = Selector("setWindowVisible:")
-        settingsMenuItem.keyEquivalent = ""
-        
-        quitMenuItem.title = "Quit"
-        quitMenuItem.action = Selector("quitApp")
-        quitMenuItem.keyEquivalent = ""
-    }
+    // MARK: - Timer and refresh logic
     
     func setupTimer() {
         refresh()
@@ -88,6 +92,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.setupMenuItems()
         })
     }
+    
+    // MARK: - Dynamic menu item config
     
     func setupMenuItems() {
         menu.removeAllItems()
@@ -115,6 +121,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         addFixedMenuItems()
     }
     
+    // MARK: - Fixed menu item config
+    
+    func setupFixedMenuItems() {
+        refreshMenuItem.title = "Refresh"
+        refreshMenuItem.action = Selector("refresh")
+        refreshMenuItem.keyEquivalent = ""
+        menu.addItem(refreshMenuItem)
+        
+        settingsMenuItem.title = "Settings"
+        settingsMenuItem.action = Selector("setWindowVisible:")
+        settingsMenuItem.keyEquivalent = ""
+        
+        quitMenuItem.title = "Quit"
+        quitMenuItem.action = Selector("quitApp")
+        quitMenuItem.keyEquivalent = ""
+    }
+    
     func addFixedMenuItems() {
         menu.addItem(NSMenuItem.separatorItem())
         menu.addItem(refreshMenuItem)
@@ -122,6 +145,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(settingsMenuItem)
         menu.addItem(quitMenuItem)
     }
+    
+    // MARK: - Menu item actions
     
     func setWindowVisible(sender: AnyObject){
         stationTextField.stringValue = defaults.objectForKey("station") as! String
@@ -150,6 +175,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func quitApp() {
         exit(0)
     }
+    
+    // MARK: - Button actions
     
     @IBAction func stationButtonPressed(sender: NSButton) {
         defaults.setObject(stationTextField.stringValue, forKey: "station")
@@ -184,9 +211,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         defaults.setInteger(sender.integerValue, forKey: "refreshInterval")
         intervalLabel.stringValue = "Current interval: \(sender.integerValue) seconds"
         setupTimer()
-    }
-    
-    func applicationWillTerminate(aNotification: NSNotification) {
     }
 
 }

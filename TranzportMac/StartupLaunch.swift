@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class StartupLaunch: NSObject {
+class StartupLaunch: NSObject {
     
     class func isAppLoginItem() -> Bool {
         return (itemReferencesInLoginItems().existingReference != nil)

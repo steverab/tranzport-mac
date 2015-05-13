@@ -74,12 +74,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AA5C45E11B02835800923BC3 /* External */ = {
+		AA4695D61B0370B4007F3583 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				AA5C45F31B0283CF00923BC3 /* APIWrapper.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		AA4695D71B0370BF007F3583 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				AA95FAF61B0273EA00CED5A4 /* MainMenu.xib */,
+			);
+			name = Interfaces;
+			sourceTree = "<group>";
+		};
+		AA5C45E11B02835800923BC3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AAC0FF221B029B5E00B320EA /* StartupLaunch.swift */,
 				AA5C45F21B02839D00923BC3 /* Alamofire */,
 			);
-			name = External;
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		AA5C45F21B02839D00923BC3 /* Alamofire */ = {
@@ -127,12 +144,10 @@
 			isa = PBXGroup;
 			children = (
 				AA95FAF21B0273EA00CED5A4 /* AppDelegate.swift */,
-				AA5C45F31B0283CF00923BC3 /* APIWrapper.swift */,
-				AAC0FF221B029B5E00B320EA /* StartupLaunch.swift */,
+				AA4695D61B0370B4007F3583 /* Network */,
 				AA5C45F71B028B6600923BC3 /* Models */,
-				AA5C45E11B02835800923BC3 /* External */,
-				AA95FAF41B0273EA00CED5A4 /* Images.xcassets */,
-				AA95FAF61B0273EA00CED5A4 /* MainMenu.xib */,
+				AA5C45E11B02835800923BC3 /* Helpers */,
+				AA4695D71B0370BF007F3583 /* Interfaces */,
 				AA95FAF01B0273EA00CED5A4 /* Supporting Files */,
 			);
 			path = TranzportMac;
@@ -141,6 +156,7 @@
 		AA95FAF01B0273EA00CED5A4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AA95FAF41B0273EA00CED5A4 /* Images.xcassets */,
 				AA95FAF11B0273EA00CED5A4 /* Info.plist */,
 			);
 			name = "Supporting Files";
