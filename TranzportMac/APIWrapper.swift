@@ -12,7 +12,7 @@ class APIWrapper {
     
     let defaults = NSUserDefaults.standardUserDefaults()
     
-    let baseURL = "https://tranzit-api.herokuapp.com/"
+    let baseURL = "https://tranzport-api.herokuapp.com/"
     
     func fetchDepartures(success: (departures:[Departure]) -> Void, failure: (error : NSError!) -> Void) {
         let station = defaults.objectForKey("station") as! String
