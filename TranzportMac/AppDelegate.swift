@@ -111,10 +111,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } else {
             statusBarItem.title = "⚠"
             
-            let noItemsItem = NSMenuItem()
-            noItemsItem.title = "No departures available for this station"
+            var noItemsItem = NSMenuItem()
+            noItemsItem.title = "No departures available"
             noItemsItem.action = nil
-            noItemsItem.keyEquivalent = ""
+            menu.addItem(noItemsItem)
+            
+            noItemsItem = NSMenuItem()
+            noItemsItem.title = "Check station spelling and internet connection"
+            noItemsItem.action = nil
             menu.addItem(noItemsItem)
         }
         

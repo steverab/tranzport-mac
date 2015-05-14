@@ -19,7 +19,7 @@ class APIWrapper {
         let station = defaults.objectForKey("station") as! String
         request(.GET, baseURL + "departures", parameters: ["station": station]).responseJSON { (_, _, JSON, error) in
             if let err = error {
-                
+                failure(error: err)
             } else {
                 if let response = JSON as! [[String: AnyObject]]? {
                     success(departures: Departure.departuresFromArray(response))

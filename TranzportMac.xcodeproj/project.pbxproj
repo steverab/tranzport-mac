@@ -95,9 +95,9 @@
 		AA5C45E11B02835800923BC3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AAAC8DE91B04E54100D4D5E9 /* StationFormatter.swift */,
 				AAC0FF221B029B5E00B320EA /* StartupLaunch.swift */,
 				AAAC8DE61B04E44600D4D5E9 /* External */,
-				AAAC8DE91B04E54100D4D5E9 /* StationFormatter.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
