@@ -99,7 +99,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.removeAllItems()
         
         if departures.count != 0 {
-            statusBarItem.title = departures.first?.description
+            statusBarItem.title = departures.first?.shortenedDescription
             
             for dep in departures {
                 let depItem = NSMenuItem()

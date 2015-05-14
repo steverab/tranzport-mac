@@ -21,6 +21,7 @@
 		AA95FAF51B0273EA00CED5A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA95FAF41B0273EA00CED5A4 /* Images.xcassets */; };
 		AA95FAF81B0273EA00CED5A4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA95FAF61B0273EA00CED5A4 /* MainMenu.xib */; };
 		AA95FB041B0273EA00CED5A4 /* TranzportMacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA95FB031B0273EA00CED5A4 /* TranzportMacTests.swift */; };
+		AAAC8DEA1B04E54100D4D5E9 /* StationFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAC8DE91B04E54100D4D5E9 /* StationFormatter.swift */; };
 		AAC0FF231B029B5E00B320EA /* StartupLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC0FF221B029B5E00B320EA /* StartupLaunch.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		AA95FAFD1B0273EA00CED5A4 /* TranzportMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TranzportMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA95FB021B0273EA00CED5A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA95FB031B0273EA00CED5A4 /* TranzportMacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranzportMacTests.swift; sourceTree = "<group>"; };
+		AAAC8DE91B04E54100D4D5E9 /* StationFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationFormatter.swift; sourceTree = "<group>"; };
 		AAC0FF221B029B5E00B320EA /* StartupLaunch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupLaunch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,7 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				AAC0FF221B029B5E00B320EA /* StartupLaunch.swift */,
-				AA5C45F21B02839D00923BC3 /* Alamofire */,
+				AAAC8DE61B04E44600D4D5E9 /* External */,
+				AAAC8DE91B04E54100D4D5E9 /* StationFormatter.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -177,6 +180,14 @@
 				AA95FB021B0273EA00CED5A4 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AAAC8DE61B04E44600D4D5E9 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				AA5C45F21B02839D00923BC3 /* Alamofire */,
+			);
+			name = External;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAAC8DEA1B04E54100D4D5E9 /* StationFormatter.swift in Sources */,
 				AA5C45EB1B02839000923BC3 /* Download.swift in Sources */,
 				AA5C45F61B02841400923BC3 /* Departure.swift in Sources */,
 				AA5C45EE1B02839000923BC3 /* Request.swift in Sources */,

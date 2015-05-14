@@ -19,6 +19,10 @@ class Departure: NSObject, Printable, NSCoding {
         return line + " → " + destination + " in " + minutes + " min"
     }
     
+    var shortenedDescription: String {
+        return line + " → " + StationFormatter.shortenStationName(destination) + " (" + minutes + " min)"
+    }
+    
     override init() {
     }
     
