@@ -7,14 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA5C45E31B02836900923BC3 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5C45E21B02836900923BC3 /* Alamofire.swift */; };
-		AA5C45EB1B02839000923BC3 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5C45E41B02839000923BC3 /* Download.swift */; };
-		AA5C45EC1B02839000923BC3 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5C45E51B02839000923BC3 /* Manager.swift */; };
-		AA5C45ED1B02839000923BC3 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5C45E61B02839000923BC3 /* ParameterEncoding.swift */; };
-		AA5C45EE1B02839000923BC3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5C45E71B02839000923BC3 /* Request.swift */; };
-		AA5C45EF1B02839000923BC3 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5C45E81B02839000923BC3 /* ResponseSerialization.swift */; };
-		AA5C45F01B02839000923BC3 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5C45E91B02839000923BC3 /* Upload.swift */; };
-		AA5C45F11B02839000923BC3 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5C45EA1B02839000923BC3 /* Validation.swift */; };
 		AA5C45F41B0283CF00923BC3 /* APIWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5C45F31B0283CF00923BC3 /* APIWrapper.swift */; };
 		AA5C45F61B02841400923BC3 /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5C45F51B02841400923BC3 /* Departure.swift */; };
 		AA95FAF31B0273EA00CED5A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA95FAF21B0273EA00CED5A4 /* AppDelegate.swift */; };
@@ -36,14 +28,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AA5C45E21B02836900923BC3 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
-		AA5C45E41B02839000923BC3 /* Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
-		AA5C45E51B02839000923BC3 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
-		AA5C45E61B02839000923BC3 /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
-		AA5C45E71B02839000923BC3 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		AA5C45E81B02839000923BC3 /* ResponseSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseSerialization.swift; sourceTree = "<group>"; };
-		AA5C45E91B02839000923BC3 /* Upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
-		AA5C45EA1B02839000923BC3 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		AA5C45F31B0283CF00923BC3 /* APIWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIWrapper.swift; sourceTree = "<group>"; };
 		AA5C45F51B02841400923BC3 /* Departure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Departure.swift; sourceTree = "<group>"; };
 		AA95FAED1B0273EA00CED5A4 /* TranzportMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TranzportMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,24 +81,8 @@
 			children = (
 				AAAC8DE91B04E54100D4D5E9 /* StationFormatter.swift */,
 				AAC0FF221B029B5E00B320EA /* StartupLaunch.swift */,
-				AAAC8DE61B04E44600D4D5E9 /* External */,
 			);
 			name = Helpers;
-			sourceTree = "<group>";
-		};
-		AA5C45F21B02839D00923BC3 /* Alamofire */ = {
-			isa = PBXGroup;
-			children = (
-				AA5C45E21B02836900923BC3 /* Alamofire.swift */,
-				AA5C45E41B02839000923BC3 /* Download.swift */,
-				AA5C45E51B02839000923BC3 /* Manager.swift */,
-				AA5C45E61B02839000923BC3 /* ParameterEncoding.swift */,
-				AA5C45E71B02839000923BC3 /* Request.swift */,
-				AA5C45E81B02839000923BC3 /* ResponseSerialization.swift */,
-				AA5C45E91B02839000923BC3 /* Upload.swift */,
-				AA5C45EA1B02839000923BC3 /* Validation.swift */,
-			);
-			name = Alamofire;
 			sourceTree = "<group>";
 		};
 		AA5C45F71B028B6600923BC3 /* Models */ = {
@@ -182,14 +150,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		AAAC8DE61B04E44600D4D5E9 /* External */ = {
-			isa = PBXGroup;
-			children = (
-				AA5C45F21B02839D00923BC3 /* Alamofire */,
-			);
-			name = External;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -234,6 +194,7 @@
 		AA95FAE51B0273EA00CED5A4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Stephan Rabanser";
 				TargetAttributes = {
@@ -290,18 +251,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAAC8DEA1B04E54100D4D5E9 /* StationFormatter.swift in Sources */,
-				AA5C45EB1B02839000923BC3 /* Download.swift in Sources */,
 				AA5C45F61B02841400923BC3 /* Departure.swift in Sources */,
-				AA5C45EE1B02839000923BC3 /* Request.swift in Sources */,
-				AA5C45E31B02836900923BC3 /* Alamofire.swift in Sources */,
 				AAC0FF231B029B5E00B320EA /* StartupLaunch.swift in Sources */,
-				AA5C45ED1B02839000923BC3 /* ParameterEncoding.swift in Sources */,
-				AA5C45F11B02839000923BC3 /* Validation.swift in Sources */,
-				AA5C45F01B02839000923BC3 /* Upload.swift in Sources */,
 				AA5C45F41B0283CF00923BC3 /* APIWrapper.swift in Sources */,
 				AA95FAF31B0273EA00CED5A4 /* AppDelegate.swift in Sources */,
-				AA5C45EF1B02839000923BC3 /* ResponseSerialization.swift in Sources */,
-				AA5C45EC1B02839000923BC3 /* Manager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
