@@ -9,7 +9,7 @@
 import Foundation
 
 @objc(Departure)
-class Departure: NSObject, Printable, NSCoding {
+class Departure: NSObject, NSCoding {
     
     var line = ""
     var destination = ""

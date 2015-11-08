@@ -8,35 +8,28 @@
 
 import Foundation
 
-extension String {
-    public func indexOfCharacter(char: Character) -> Int? {
-        if let idx = find(self, char) {
-            return distance(self.startIndex, idx)
-        }
-        return nil
-    }
-}
-
 class StationFormatter {
     
     class func shortenStationName(sName: String) -> String {
         var needle: Character = "("
         var shortenedString = sName
-        if find(sName, needle) == nil {
+        /*
+        if sName.indexOf(needle) {
             needle = " "
             if let idx = find(sName, needle) {
                 let pos = distance(sName.startIndex, idx)
                 shortenedString = sName.substringWithRange(Range<String.Index>(start: sName.startIndex, end: advance(sName.startIndex, pos + 2)))
-                shortenedString = shortenedString + ["."]
+                shortenedString = shortenedString + "."
             } else {
                 needle = "-"
                 if let idx = find(sName, needle) {
                     let pos = distance(sName.startIndex, idx)
                     shortenedString = sName.substringWithRange(Range<String.Index>(start: sName.startIndex, end: advance(sName.startIndex, pos + 2)))
-                    shortenedString = shortenedString + ["."]
+                    shortenedString = shortenedString + "."
                 }
             }
         }
+        */
         return shortenedString
     }
     

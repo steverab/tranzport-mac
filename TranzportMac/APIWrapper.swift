@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class APIWrapper {
     
@@ -17,13 +18,11 @@ class APIWrapper {
     
     func fetchDepartures(success: (departures:[Departure]) -> Void, failure: (error : NSError!) -> Void) {
         let station = defaults.objectForKey("station") as! String
-        request(.GET, baseURL + "departures", parameters: ["station": station]).responseJSON { (_, _, JSON, error) in
-            if let err = error {
-                failure(error: err)
+        Alamofire.request(.GET, baseURL + "departures", parameters: ["station": station]).responseJSON { response in
+            if let response = response.result.value as! [[String: AnyObject]]? {
+                success(departures: Departure.departuresFromArray(response))
             } else {
-                if let response = JSON as! [[String: AnyObject]]? {
-                    success(departures: Departure.departuresFromArray(response))
-                }
+                failure(error: NSError(domain: "com.steverab.Tranzport", code: 1, userInfo: nil))
             }
         }
     }
