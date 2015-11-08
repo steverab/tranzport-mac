@@ -14,7 +14,6 @@
 		AA95FAF51B0273EA00CED5A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA95FAF41B0273EA00CED5A4 /* Images.xcassets */; };
 		AA95FAF81B0273EA00CED5A4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA95FAF61B0273EA00CED5A4 /* MainMenu.xib */; };
 		AA95FB041B0273EA00CED5A4 /* TranzportMacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA95FB031B0273EA00CED5A4 /* TranzportMacTests.swift */; };
-		AAAC8DEA1B04E54100D4D5E9 /* StationFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAC8DE91B04E54100D4D5E9 /* StationFormatter.swift */; };
 		AAC0FF231B029B5E00B320EA /* StartupLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC0FF221B029B5E00B320EA /* StartupLaunch.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +39,6 @@
 		AA95FAFD1B0273EA00CED5A4 /* TranzportMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TranzportMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA95FB021B0273EA00CED5A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA95FB031B0273EA00CED5A4 /* TranzportMacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranzportMacTests.swift; sourceTree = "<group>"; };
-		AAAC8DE91B04E54100D4D5E9 /* StationFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationFormatter.swift; sourceTree = "<group>"; };
 		AAC0FF221B029B5E00B320EA /* StartupLaunch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupLaunch.swift; sourceTree = "<group>"; };
 		ABDCAB8729F997686288593D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CC4EB038A4B1A78CE9349DAA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 		AA5C45E11B02835800923BC3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				AAAC8DE91B04E54100D4D5E9 /* StationFormatter.swift */,
 				AAC0FF221B029B5E00B320EA /* StartupLaunch.swift */,
 			);
 			name = Helpers;
@@ -325,7 +322,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAAC8DEA1B04E54100D4D5E9 /* StationFormatter.swift in Sources */,
 				AA5C45F61B02841400923BC3 /* Departure.swift in Sources */,
 				AAC0FF231B029B5E00B320EA /* StartupLaunch.swift in Sources */,
 				AA5C45F41B0283CF00923BC3 /* APIWrapper.swift in Sources */,

@@ -13,6 +13,7 @@ class Departure: NSObject, NSCoding {
     
     var line = ""
     var destination = ""
+    var destinationShort = ""
     var minutes = ""
     
     override var description: String {
@@ -20,7 +21,7 @@ class Departure: NSObject, NSCoding {
     }
     
     var shortenedDescription: String {
-        return line + " → " + StationFormatter.shortenStationName(destination) + " (" + minutes + " min)"
+        return line + " → " + destinationShort + " (" + minutes + " min)"
     }
     
     override init() {
@@ -29,23 +30,26 @@ class Departure: NSObject, NSCoding {
     required init(coder aDecoder: NSCoder) {
         self.line = aDecoder.decodeObjectForKey("line") as! String
         self.destination = aDecoder.decodeObjectForKey("destination") as! String
+        self.destinationShort = aDecoder.decodeObjectForKey("destinationShort") as! String
         self.minutes = aDecoder.decodeObjectForKey("minutes") as! String
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(line, forKey: "line")
         aCoder.encodeObject(destination, forKey: "destination")
+        aCoder.encodeObject(destinationShort, forKey: "destinationShort")
         aCoder.encodeObject(minutes, forKey: "minutes")
     }
     
-    init(line: String, destination: String, minutes: String) {
+    init(line: String, destination: String, destinationShort: String, minutes: String) {
         self.line = line
         self.destination = destination
+        self.destinationShort = destinationShort
         self.minutes = minutes
     }
     
     class func departureFromDictionary(dict: [String : AnyObject]) -> Departure {
-        return Departure(line: dict["line"] as! String, destination: dict["destination"] as! String, minutes: String(dict["minutes"] as! Int))
+        return Departure(line: dict["line"] as! String, destination: dict["destination"] as! String, destinationShort: dict["destination_short"] as! String, minutes: String(dict["minutes"] as! Int))
     }
     
     class func departuresFromArray(array: [[String : AnyObject]]) -> [Departure] {
